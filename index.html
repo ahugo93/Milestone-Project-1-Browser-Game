@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="text-container">
+        <h1>Hangman</h1>
+        <p>Use the alphabet below to guess the key word, or click hint to get a clue</p>
+    </div>
+    <div class="game-container">
+        <div class="buttons">
+        </div>
+         <p id="categoryName"></p>
+         <div id="hold">
+        </div>
+        <p id="attemptsLeft"></p>
+        <p id="clue"> Clue: </p>   
+        <canvas id="stickman"></canvas>
+        <div class="container">
+            <button id="hint">Hint</button>
+            <button id="reset">Play Again?</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

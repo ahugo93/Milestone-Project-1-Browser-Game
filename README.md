@@ -11,6 +11,7 @@ Complete the planning sections below and include them in the README.md of your p
 ## Project Description
 
 This will be a simple guessing game of hangman with alphabet buttons appear to guess the key word. A hint button will also appear for 3 hints per turn.
+
 _(Replace this text with a brief description of your game and what inspired you to make it.)_
 
 ## Game Logic
@@ -20,9 +21,9 @@ Replace this text with pseudocode.
 The pseudocode should describe in plain, simple language the logic of the game.
 Describe the logic involved in player decisions. 
   - What are the choices available to the player? 
-    The player has 10 attempts with 3 hints per game at guessing the key word.
+    The player has 10 attempts with 1 hint per game at guessing the key word.
     The alphabet with be shown below guesses will remove letters.
-    Player can also choose to click the hint button for 1 of 3 hints or play again to restart or try a different key word.
+    Player can also choose to click the hint button for a hint or play again to restart or try a different key word.
   - What happens when the player makes a choice?
     if the player guesses a letter correct letters will come off board and nothing will appear on canvas
     if player guesses incorrectly a piece of the hangman will appear
@@ -43,19 +44,27 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 ### MVP Criteria
 
 - One thing my game must do to meet my minimum standard.
-    Game has to function properly
+
+    Keyboard must appear and letters function
 - Another thing.
+
     hangman has to appear
 - Etc.
-    buttons have to work
+
+    hint and try again buttons have to work 
 
 ### Post-MVP Plans
 
 - One great idea I hope to be able to add in before the project deadline.
+
     letters have to disappear after selection
+    
 - Another that will be a stretch.
+
     remaining attemps display
+
 - Something else I don't technically know how to do... *yet*. :)
+
     add a scorebox
 ## Project Planning
 
