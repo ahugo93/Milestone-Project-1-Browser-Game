@@ -8,11 +8,11 @@
     <title>Hangman</title>
 </head>
 <body>
-    <div class="text-container">
+    <div class="wrapper">
         <h1>Hangman</h1>
         <p>Use the alphabet below to guess the key word, or click hint to get a clue</p>
     </div>
-    <div class="game-container">
+    <div class="wrapper">
         <div class="buttons">
         </div>
          <p id="categoryName"></p>
@@ -22,8 +22,8 @@
         <p id="clue"> Clue: </p>   
         <canvas id="stickman"></canvas>
         <div class="container">
-            <button id="hint">Hint</button>
-            <button id="reset">Play Again?</button>
+            <button id="hint" onclick="hint()">Hint</button>
+            <button id="reset" onclick="reset()">Play Again?</button>
         </div>
     </div>
 </body>

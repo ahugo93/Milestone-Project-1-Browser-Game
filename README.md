@@ -58,7 +58,7 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 - One great idea I hope to be able to add in before the project deadline.
 
     letters have to disappear after selection
-    
+
 - Another that will be a stretch.
 
     remaining attemps display
@@ -71,8 +71,8 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 | Date | Goals |
 | ---- | ----- |
 | Mon. 7/11 | Create GitHub repository. Complete README.md. |
-| Wed. 7/13 |      |
-| Sat. 7/16 |      |
+| Wed. 7/13 |  readme updated and html written    |
+| Sat. 7/16 |   css written changes made to html file, started js   |
 | Mon. 7/18 |      |
 | Wed. 7/20 |      |
 | Sat. 7/23 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
