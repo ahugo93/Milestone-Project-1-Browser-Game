@@ -1,6 +1,12 @@
 var famousAthletes = [
-    ["Michael Jordan", "Serena Williams", "Leonel Messi", "Rafael Nadal", "Megan Rapinoe", "Sue Bird"],
-    ]
+    "Michael Jordan", 
+    "Serena Williams", 
+    "Leonel Messi", 
+    "Rafael Nadal", 
+    "Megan Rapinoe", 
+    "Sue Bird"
+]
+    
 
 let answer = '';
 let maxWrong = 10;
@@ -14,7 +20,8 @@ function randomWord() {
 function generateButtons(){
     let buttonsHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter =>
     `
-    <button class= "btn btn-lg btn-primary m-2"
+    <button 
+    class= "btn btn-lg btn-primary m-2"
     id = '` + letter + `'
     onClick= "handleGuess ('` + letter + `')" >
     ` + letter + `
@@ -29,20 +36,43 @@ function handleGuess(chosenLetter){
 
     if (answer.indexOf(chosenLetter) >= 0){
         guessedWord();
+        checkIfGameWon();
     }else if (answer.indexOf(chosenLetter) === -1){
         mistakes++;
         updateMistakes();
+        checkIfGameLost();
     }
 }
 
+function checkIfGameWon(){
+    if (wordStatus === answer){
+        document.getElementById('keyboard').innerHTML = 'You Win!!!';
+    }
+}
 
+function checkIfGameLost(){
+    if (mistakes === maxWrong){
+        document.getElementById('wordSpotlight').innerHTML = 'The answer was : ' + answer;
+        document.getElementById('keyboard').innerHTML = 'You Lose!!!';
+    }
+}
 function guessedWord(){
     wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
 
     document.getElementById('wordSpotlight').innerHTML = wordStatus;
 }
 function updateMistakes(){
-    
+    document.getElementById('mistakes').innerHTML = mistakes;
+}
+
+function reset(){
+    mistakes = 0;
+    guessed = [];
+
+    randomWord();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
 }
 
 
