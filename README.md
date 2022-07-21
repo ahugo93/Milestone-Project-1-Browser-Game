@@ -73,6 +73,6 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 | Mon. 7/11 | Create GitHub repository. Complete README.md. |
 | Wed. 7/13 |  readme updated and html written    |
 | Sat. 7/16 |   css written changes made to html file, started js   |
-| Mon. 7/18 |      |
-| Wed. 7/20 |      |
+| Mon. 7/18 |   finished js some functionality bugs   |
+| Wed. 7/20 |   rewrote html will use separate css file, rewritting js and css   |
 | Sat. 7/23 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
