@@ -1,4 +1,4 @@
-var famousAthletes = [
+const famousAthletes = [
     "Michael Jordan", 
     "Serena Williams", 
     "Leonel Messi", 
@@ -63,6 +63,9 @@ function guessedWord(){
 }
 function updateMistakes(){
     document.getElementById('mistakes').innerHTML = mistakes;
+}
+function giveHint(){
+
 }
 
 function reset(){
