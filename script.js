@@ -1,86 +1,117 @@
-const famousAthletes = [
-    "Michael Jordan", 
-    "Serena Williams", 
-    "Leonel Messi", 
-    "Rafael Nadal", 
-    "Megan Rapinoe", 
-    "Sue Bird"
-]
+const wordE1 = document.getElementById('word');
+const wrongLettersE1 = document.getElementById('wrong-letters');
+const playAgainBtn = document.getElementById('play-button');
+const popup = document.getElementById('popup-container');
+const notification = document.getElementById('notification-container');
+const finalMessage = document.getElementById('final-message');
+
+const figureParts= document.querySelectorAll(".figure-part");
+
+const words = ['nets', 'knicks', 'mets', 'yankees', 'jets', 'giants', 'bills', 'rangers', 'islanders',
+'redbulls', 'nycfc', 'liberty'];
+
+let selectedWord = words[Math.floor(Math.random() * words.length)];
+
+const correctLetters = [];
+const wrongLetters = [];
+
+
+function displayWord(){
+    wordE1.innerHTML = `
+    ${selectedWord
+    .split('')
+    .map(
+        letter =>`
+        <span class="letter">
+        ${correctLetters.includes(letter) ? letter : ''}
+        </span>
+        `
+    )
+    .join('')}
+    `;
+
+    const innerWord = wordE1.innerText.replace(/\n/g, '');
+
+    if(innerWord === selectedWord){
+        finalMessage.innerText = 'Congratulations! You won! 😃';
+        popup.style.display= 'flex';
+    }
+}
+
+
+function updateWrongLetterE1(){
     
+    wrongLettersE1.innerHTML = `
+    ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
+    ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    `;
 
-let answer = '';
-let maxWrong = 10;
-let mistakes = 0;
-let guessed = [];
-let wordStatus = null;
+    
+    figureParts.forEach((part,index) => {
+        const errors = wrongLetters.length;
 
-function randomWord() {
-    answer = famousAthletes[Math.floor(Math.random() * famousAthletes.length)];
-}
-function generateButtons(){
-    let buttonsHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter =>
-    `
-    <button 
-    class= "btn btn-lg btn-primary m-2"
-    id = '` + letter + `'
-    onClick= "handleGuess ('` + letter + `')" >
-    ` + letter + `
-        </button>
-    `
-        ).join('');
-    document.getElementById('keyboard').innerHTML = buttonsHTML;
-}
-function handleGuess(chosenLetter){
-    guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-    document.getElementById(chosenLetter).setAttribute('disabled', true);
+        if(index < errors) {
+            part.style.display = 'block'
+        }
+        else{
+            part.style.display = 'none';
+        }
+    });
 
-    if (answer.indexOf(chosenLetter) >= 0){
-        guessedWord();
-        checkIfGameWon();
-    }else if (answer.indexOf(chosenLetter) === -1){
-        mistakes++;
-        updateMistakes();
-        checkIfGameLost();
+    
+    if(wrongLetters.length === figureParts.length){
+        finalMessage.innerText = 'Unfortunately you lost. 😕';
+        popup.style.display = 'flex';
     }
 }
 
-function checkIfGameWon(){
-    if (wordStatus === answer){
-        document.getElementById('keyboard').innerHTML = 'You Win!!!';
+
+function showNotification(){
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+}
+
+
+window.addEventListener('keydown', e =>{
+    if(e.keyCode >= 65 && e.keyCode <=90){
+        const letter = e.key;
+
+        if(selectedWord.includes(letter)){
+            if(!correctLetters.includes(letter)){
+                correctLetters.push(letter);
+
+                displayWord();
+            } else{
+                showNotification();
+            }
+        } else{
+            if(!wrongLetters.includes(letter)){
+                wrongLetters.push(letter);
+
+                updateWrongLetterE1();
+            } else{
+                showNotification();
+            }
+        }
     }
-}
-
-function checkIfGameLost(){
-    if (mistakes === maxWrong){
-        document.getElementById('wordSpotlight').innerHTML = 'The answer was : ' + answer;
-        document.getElementById('keyboard').innerHTML = 'You Lose!!!';
-    }
-}
-function guessedWord(){
-    wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-
-    document.getElementById('wordSpotlight').innerHTML = wordStatus;
-}
-function updateMistakes(){
-    document.getElementById('mistakes').innerHTML = mistakes;
-}
-function giveHint(){
-
-}
-
-function reset(){
-    mistakes = 0;
-    guessed = [];
-
-    randomWord();
-    guessedWord();
-    updateMistakes();
-    generateButtons();
-}
+});
 
 
-document.getElementById('maxWrong').innerHTML = maxWrong;
+playAgainBtn.addEventListener('click', () => {
+    
+    correctLetters.splice(0);
+    wrongLetters.splice(0);
 
-randomWord();
-generateButtons();
-guessedWord();
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+
+    displayWord();
+
+    updateWrongLetterE1();
+
+    popup.style.display = 'none';
+});
+
+displayWord();
