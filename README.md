@@ -10,7 +10,7 @@ Complete the planning sections below and include them in the README.md of your p
 
 ## Project Description
 
-This will be a simple guessing game of hangman with alphabet buttons appear to guess the key word. A hint button will also appear for 3 hints per turn.
+This will be a simple guessing game of hangman using keyboard to input letters to guess. 
 
 _(Replace this text with a brief description of your game and what inspired you to make it.)_
 
@@ -21,13 +21,17 @@ Replace this text with pseudocode.
 The pseudocode should describe in plain, simple language the logic of the game.
 Describe the logic involved in player decisions. 
   - What are the choices available to the player? 
-    The player has 10 attempts with 1 hint per game at guessing the key word.
-    The alphabet with be shown below guesses will remove letters.
-    Player can also choose to click the hint button for a hint or play again to restart or try a different key word.
+
+    The player has 10 attempts at guessing the key word.
+    The keyboard is used to input letters and container will be on screen of wrong letters.
+    
   - What happens when the player makes a choice?
-    if the player guesses a letter correct letters will come off board and nothing will appear on canvas
+
+    if the player guesses a letter correct letters will appear on screen and nothing will appear on canvas
     if player guesses incorrectly a piece of the hangman will appear
+
 Describe the logic that evaluates the player's victory/loss/progress status.
+
     Player wins will display if player wins
     Player loses and hangman will appear of player loses 
     progress will show in canvas
@@ -45,19 +49,21 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 
 - One thing my game must do to meet my minimum standard.
 
-    Keyboard must appear and letters function
+    Letter input on screen, hangman displays properly
+
 - Another thing.
 
-    hangman has to appear
+    wrong letter continer 
+
 - Etc.
 
-    hint and try again buttons have to work 
+    play again button works 
 
 ### Post-MVP Plans
 
 - One great idea I hope to be able to add in before the project deadline.
 
-    letters have to disappear after selection
+    alert message for letter used more than once
 
 - Another that will be a stretch.
 
@@ -65,7 +71,7 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 
 - Something else I don't technically know how to do... *yet*. :)
 
-    add a scorebox
+    hint button
 ## Project Planning
 
 | Date | Goals |
