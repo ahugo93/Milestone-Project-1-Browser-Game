@@ -1,0 +1,31 @@
+@import "./config";
+@import "./game";
+@import "./notification";
+@import "./popup";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $primary-color;
+    color: $font-color;
+    font-family: $font-stack;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1{
+    margin: 20px 0 0;
+}
+
+
+
+
+
+
